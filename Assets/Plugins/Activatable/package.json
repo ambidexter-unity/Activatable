@@ -1,0 +1,10 @@
+{
+  "name": "io.ambidexter.activatable",
+  "displayName": "Activatable interface",
+  "version": "1.0.0",
+  "unity": "2019.1",
+  "description": "Activatable interface",
+  "dependencies": {
+    "com.neuecc.unirx": "6.2.2"
+  }
+}
