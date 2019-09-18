@@ -1,5 +1,3 @@
-using System;
-
 // ReSharper disable once CheckNamespace
 namespace Common.Activatable
 {
@@ -11,6 +9,8 @@ namespace Common.Activatable
 		ToInactive
 	}
 
+	public delegate void ActivatableStateChangedHandler(ActivatableState state);
+
 	public interface IActivatable
 	{
 		/// <summary>
@@ -21,7 +21,7 @@ namespace Common.Activatable
 		/// <summary>
 		/// Событие изменения текущего состояния.
 		/// </summary>
-		event Action<ActivatableState> ActivatableStateChangedEvent;
+		event ActivatableStateChangedHandler ActivatableStateChangedEvent;
 
 		/// <summary>
 		/// Активировать объект.
