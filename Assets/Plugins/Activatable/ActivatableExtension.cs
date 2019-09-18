@@ -1,33 +1,34 @@
+// ReSharper disable once CheckNamespace
 namespace Common.Activatable
 {
 	public static class ActivatableExtension
 	{
 		public static bool IsActive(this IActivatable a)
 		{
-			return a.ActivatableState.Value == ActivatableState.Active;
+			return a.ActivatableState == ActivatableState.Active;
 		}
 
 		public static bool IsInactive(this IActivatable a)
 		{
-			return a.ActivatableState.Value == ActivatableState.Inactive;
+			return a.ActivatableState == ActivatableState.Inactive;
 		}
 
 		public static bool IsBusy(this IActivatable a)
 		{
-			return a.ActivatableState.Value == ActivatableState.ToActive ||
-			       a.ActivatableState.Value == ActivatableState.ToInactive;
+			return a.ActivatableState == ActivatableState.ToActive ||
+			       a.ActivatableState == ActivatableState.ToInactive;
 		}
 
 		public static bool IsActiveOrActivated(this IActivatable a)
 		{
-			return a.ActivatableState.Value == ActivatableState.Active ||
-			       a.ActivatableState.Value == ActivatableState.ToActive;
+			return a.ActivatableState == ActivatableState.Active ||
+			       a.ActivatableState == ActivatableState.ToActive;
 		}
 
 		public static bool IsInactiveOrDeactivated(this IActivatable a)
 		{
-			return a.ActivatableState.Value == ActivatableState.Inactive ||
-			       a.ActivatableState.Value == ActivatableState.ToInactive;
+			return a.ActivatableState == ActivatableState.Inactive ||
+			       a.ActivatableState == ActivatableState.ToInactive;
 		}
 	}
 }

@@ -1,5 +1,6 @@
-using UniRx;
+using System;
 
+// ReSharper disable once CheckNamespace
 namespace Common.Activatable
 {
 	public enum ActivatableState
@@ -9,20 +10,25 @@ namespace Common.Activatable
 		ToActive,
 		ToInactive
 	}
-	
+
 	public interface IActivatable
 	{
 		/// <summary>
 		/// Текущее состояние активируемого объекта.
 		/// </summary>
-		IReadOnlyReactiveProperty<ActivatableState> ActivatableState { get; }
-		
+		ActivatableState ActivatableState { get; }
+
+		/// <summary>
+		/// Событие изменения текущего состояния.
+		/// </summary>
+		event Action<ActivatableState> ActivatableStateChangedEvent;
+
 		/// <summary>
 		/// Активировать объект.
 		/// </summary>
 		/// <param name="immediately">Флаг, указывающий активировать объект немедленно.</param>
 		void Activate(bool immediately = false);
-		
+
 		/// <summary>
 		/// Деактивировать объект.
 		/// </summary>
