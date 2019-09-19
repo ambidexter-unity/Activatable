@@ -9,7 +9,7 @@ namespace Common.Activatable
 		ToInactive
 	}
 
-	public delegate void ActivatableStateChangedHandler(ActivatableState state);
+	public delegate void ActivatableStateChangedHandler(IActivatable activatable, ActivatableState state);
 
 	public interface IActivatable
 	{
